@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+
+.diagonal-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+  border-right: 2px solid rgb(250, 5, 5);
+}
+
+.diagonal {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 0;
+  height: 100%;
+  border-left: 2px solid white;
+  transform: translateX(50%);
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background: url("AomPic1.jpg") no-repeat center center/cover;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid rgb(248, 4, 4);
+  box-sizing: border-box;
+}
+
+.content2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  background: url("AomThm.jpg") no-repeat center center/cover;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid rgb(255, 0, 0);
+  box-sizing: border-box;
+}
+
+.hoverable {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+.active {
+  z-index: 4;
+}
+
+.hidden {
+  display: none;
+}
+
+.content:hover, .content2:hover {
+  opacity: 0.75;
+}
+
+.content:hover h1, .content:hover p, .content2:hover h1, .content2:hover p {
+  opacity: 1;
+  text-shadow: 0 0 10px red;
+}
+
+.content h1, .content p, .content2 h1, .content2 p {
+  margin: 0;
+  padding: 0;
+}
+
+.content h1, .content2 h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.content p, .content2 p {
+  font-size: 24px;
+}
+
+.content, .content2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content h1, .content p, .content2 h1, .content2 p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+#video-container {
+  position: relative;
+  z-index: 9999;
+  top: 50%;
+  left: 82.5%;
+  transform: translate(-50%, -50%);
+}
+.iframe {
+  position: relative;
+  z-index: 9999;
+}
