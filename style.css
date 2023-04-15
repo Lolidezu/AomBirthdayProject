@@ -1,132 +1,109 @@
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-image: url("images/abg.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
   
-}
-
-
-.diagonal-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 2;
-  border-right: 2px solid rgb(250, 5, 5);
-}
-
-.diagonal {
-  position: absolute;
-  top: 0;
-  right: 50%;
-  width: 0;
-  height: 100%;
-  border-left: 2px solid white;
-  transform: translateX(50%);
-  z-index: 1;
-}
-
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50vw;
-  height: 100vh;
-  background: url("AomPic1.jpg") no-repeat center center/cover;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 2px solid rgb(248, 4, 4);
-  box-sizing: border-box;
-}
-
-.content2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50vw;
-  height: 100vh;
-  background: url("AomThm.jpg") no-repeat center center/cover;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 2px solid rgb(255, 0, 0);
-  box-sizing: border-box;
-}
-
-.hoverable {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: white;
-}
-
-.active {
-  z-index: 4;
-}
-
-.hidden {
-  display: none;
-}
-
-.content:hover, .content2:hover {
-  opacity: 0.75;
-}
-
-.content:hover h1, .content:hover p, .content2:hover h1, .content2:hover p {
-  opacity: 1;
-  text-shadow: 0 0 10px red;
-}
-
-.content h1, .content p, .content2 h1, .content2 p {
-  margin: 0;
-  padding: 0;
-}
-
-.content h1, .content2 h1 {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.content p, .content2 p {
-  font-size: 24px;
-}
-
-.content, .content2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.content h1, .content p, .content2 h1, .content2 p {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-}
-#video-container {
-  position: relative;
-  z-index: 9999;
-  top: 50%;
-  left: 82.5%;
-  transform: translate(-50%, -50%);
-}
-.iframe {
-  position: relative;
-  z-index: 9999;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100vh;
+  }
+  
+  .part {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  #part-1 {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+  
+  #part-2 {
+    background-image: url("images/a22.png");
+    background-color: transparent;
+  }
+  
+  #part-2:hover::before {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  #part-3 {
+    background-image: url("images/a23.png");
+    background-color: transparent;
+  }
+  
+  #part-3:hover::before {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  #part-4 {
+    background-color: rgba(0, 0, 0, 0.85);
+    flex: 2;
+  }
+  
+  #part-2::before,
+  #part-3::before,
+  #part-4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: background-color 0.5s ease;
+  }
+  
+  #part-4:hover::before {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  #video-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    z-index: 9999;
+    display: none;
+    overflow: hidden;
+  }  
+  
+  #video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9999;
+  }
+  
+  #video-container.active {
+    display: block;
+    animation: zoomIn 0.5s forwards;
+  }
+  
+  @keyframes zoomIn {
+    from {
+      transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  /* added */
+  #part-2:hover, #part-3:hover {
+    cursor: pointer;
+  }
